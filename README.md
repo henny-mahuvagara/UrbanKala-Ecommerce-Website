@@ -29,4 +29,38 @@ The idea behind this project was to create a platform for handmade/custom produc
 
 ---
 
+
+---
+
+## 📸 Screenshots
+
+*Will be added soon*
+
+---
+
+## ⚠️ Limitations
+
+- Payment gateway is not implemented
+- UI can be further improved
+- Some features are basic and can be extended
+
+---
+
+## 📈 Learning Outcomes
+
+- Working with Angular components and routing
+- Integrating Firebase for backend services
+- Structuring an e-commerce application
+- Handling admin and user roles separately
+
+---
+
+## 👩‍💻 Author
+
+**Henny Mahuvagara**  
+GitHub: https://github.com/henny-mahuvagara
+
+---
+
+
 ## 📁 Project Structure
