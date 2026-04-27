@@ -1,35 +1,32 @@
-# 🛍️ UrbanKala - E-commerce Website
+# 🛍️ UrbanKala
 
-UrbanKala is a modern e-commerce platform designed to showcase and sell handmade and customized products. It provides a seamless shopping experience for users and a powerful admin panel for product and order management.
+UrbanKala is an e-commerce project I built to explore how a real online store works — from managing products to handling user interactions.
 
----
-
-## 🚀 Tech Stack
-
-**Frontend:**
-- Angular
-- HTML, CSS
-- Tailwind CSS
-
-**Backend / Database:**
-- Firebase
+The idea behind this project was to create a platform for handmade/custom products, where users can browse items and admins can manage the store easily.
 
 ---
 
-## ✨ Features
+## 💻 Tech Used
 
-### 👤 User Side
-- 🛒 Add to Cart functionality
-- 🔍 Browse and view products
-- 📄 Product details page
-- 👤 User registration & login
-- 🧾 Order management (basic)
-
-### 🛠️ Admin Side
-- 📦 Product management (Add / Update / Delete)
-- 📊 Dashboard overview
-- 🧑‍💼 Admin control panel
+- Angular (Frontend)
+- HTML, CSS, Tailwind
+- Firebase (Database & Backend)
 
 ---
 
-## 📂 Project Structure
+## 🚀 What This Project Can Do
+
+### User Side
+- Browse products
+- View product details
+- Add items to cart
+- Register / Login
+
+### Admin Side
+- Add / update / delete products
+- Manage product listings
+- Control what appears on the store
+
+---
+
+## 📁 Project Structure
