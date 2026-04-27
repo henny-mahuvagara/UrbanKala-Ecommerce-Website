@@ -1,0 +1,52 @@
+/* ========================================
+   Turn's Time — Theme Configuration
+   ========================================
+   Global Theme Variables (RGB Channels).
+   Format: R G B (space separated, no commas).
+   
+   To change the theme:
+   1. Pick a new color palette (e.g., Blue for Primary).
+   2. Replace the RGB values below.
+   3. The whole site updates instantly.
+   ======================================== */
+
+
+:root {
+  /* Five-color palette (user-provided names mapped to RGB)
+     - deep maroon   : rgb(62, 7, 3)
+     - royal brown   : rgb(111, 62, 46)
+     - antique gold  : rgb(199, 162, 82)
+     - warm beige    : rgb(245, 231, 198)245, 233, 216
+     - ivory         : rgb(255, 248, 231)
+  */
+
+  /* Raw palette */
+  --pal-deep: 62 7 3;        /* deep maroon  119 29 29*/
+  --pal-royal: 111 62 46;    /* royal brown */
+  --pal-gold: 199 162 82;    /* antique gold */
+  --pal-beige: 245 233 216;  /* warm beige */
+  --pal-ivory: 255 248 231;  /* ivory */
+
+  /* Semantic tokens (use only the palette above)
+     - background: warm beige
+     - primary text: deep maroon
+     - header/footer bg: royal brown
+     - header/footer text: ivory
+     - cards: antique gold
+     - accents/links/buttons: antique gold
+  */
+
+  --color-bg: var(--pal-beige);
+  --color-text: var(--pal-deep);
+  --color-header-bg: var(--pal-royal);
+  --color-header-text: var(--pal-ivory);
+  --color-footer-bg: var(--pal-royal);
+  --color-footer-text: var(--pal-ivory);
+  --color-card-bg: var(--pal-gold);
+  --color-accent: var(--pal-gold);
+
+  --color-white: var(--pal-ivory);
+  --color-black: var(--pal-deep);
+
+}
+

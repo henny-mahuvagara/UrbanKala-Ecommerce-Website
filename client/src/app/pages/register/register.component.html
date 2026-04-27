@@ -1,0 +1,64 @@
+<!-- Register Page -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden py-12 bg-[rgb(var(--pal-beige))]">
+    <!-- Background blobs -->
+    <div class="absolute w-[400px] h-[400px] bg-primary-500 rounded-full -top-24 -right-24 opacity-15 blur-[120px]">
+    </div>
+    <div class="absolute w-[300px] h-[300px] bg-secondary-500 rounded-full -bottom-24 -left-24 opacity-15 blur-[120px]">
+    </div>
+
+    <div class="w-full max-w-md mx-auto px-6 relative z-10">
+        <div class="bg-[rgb(var(--pal-deep))] backdrop-blur-2xl border border-white/[0.08] rounded-3xl p-8 sm:p-10 shadow-2xl">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <div
+                    class="w-20 h-20 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-full flex items-center justify-center mx-auto mb-5 text-3xl text-white shadow-lg shadow-primary-500/25">
+                    <img src="/images/register.png" alt="register icon" class="h-15 w-auto mb-1 object-contain">
+                </div> 
+                <h2 class="text-[rgb(var(--pal-beige))] text-2xl font-bold mb-1">Create Account</h2>
+                <p class="text-[rgb(var(--pal-beige))]">Join us today! Please fill in your details</p>
+            </div>
+
+            <!-- Error -->
+            <p *ngIf="errorMsg"
+                class="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm text-center">
+                {{errorMsg}}
+            </p>
+
+            <!-- Form -->
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="space-y-5">
+                <div>
+                    <img src="/images/mail.png" alt="Email Icon" class="inline w-5 mr-2 mb-1">
+                    <label for="email" class="block text-sm font-medium text-[rgb(var(--pal-beige))] mb-2 inline">Email Address</label>
+                    <input formControlName="email" type="email" id="email" placeholder="john.doe&#64;example.com"
+                        class="w-full px-4 py-3 bg-card/80 border border-white/10 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
+                        required>
+                </div>
+
+                <div>
+                    <img src="/images/pass.png" alt="Password Icon" class="inline w-5 mr-2 mb-1">
+                    <label for="password" class="block text-sm font-medium text-[rgb(var(--pal-beige))] mb-2 inline">Password</label>
+                    <input formControlName="password" type="password" id="password"
+                        placeholder="Create a strong password"
+                        class="w-full px-4 py-3 bg-card/80 border border-white/10 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
+                        required>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3.5 text-[rgb(var(--pal-deep))] bg-[rgb(var(--pal-beige))]  font-semibold rounded-xl shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all duration-300 text-sm">
+                    Create Account
+                </button>
+
+                <p class="text-center text-[rgb(var(--pal-beige))] text-sm">
+                    Already have an account?
+                    <a routerLink="/login"
+                        class="text-[rgb(var(--pal-beige))] hover:text-primary-300 font-medium transition-colors">Sign In</a>
+                </p>
+            </form>
+
+            <!-- Security note -->
+            <p class="text-center text-[rgb(var(--pal-beige))] text-xs mt-6">
+                <img src="/images/lock2.png" alt="Security Icon" class="inline mr-2 w-4 h-4"> Your information is secure with us
+            </p>
+        </div>
+    </div>
+</section>

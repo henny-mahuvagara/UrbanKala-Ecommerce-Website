@@ -1,0 +1,117 @@
+/* Navbar Dropdown Styles */
+.nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 4px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background: transparent;
+    color: rgb(var(--pal-ivory));
+}
+
+.nav-dropdown-trigger:hover {
+    opacity: 0.8;
+}
+
+.nav-dropdown-trigger .chevron {
+    font-size: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.nav-dropdown-trigger.open .chevron {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 200px;
+    background: rgb(var(--pal-deep));
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 6px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    z-index: 100;
+    animation: dropdownSlide 0.2s ease;
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-dropdown-menu .dropdown-email {
+    padding: 10px 14px;
+    font-size: 0.7rem;
+    color: rgb(var(--pal-ivory));
+    opacity: 0.5;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 4px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.nav-dropdown-menu a,
+.nav-dropdown-menu button.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgb(var(--pal-ivory));
+    border-radius: 10px;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu button.dropdown-item:hover {
+    background: rgba(255,255,255,0.08);
+    color: rgb(var(--pal-beige));
+}
+
+.nav-dropdown-menu .dropdown-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.nav-dropdown-menu .dropdown-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 4px 8px;
+}
+
+.nav-dropdown-menu button.dropdown-item.logout-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+}

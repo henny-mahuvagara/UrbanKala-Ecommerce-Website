@@ -1,0 +1,51 @@
+/* Minimalist Product Card */
+.product-card-minimal {
+    transition: all 0.3s ease;
+}
+
+.product-card-minimal:hover {
+    transform: translateY(-4px);
+}
+
+/* Sidebar Customization */
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Input & Select Focus */
+input:focus {
+    box-shadow: 0 0 0 2px rgba(199, 162, 82, 0.1);
+    border-color: rgb(var(--pal-gold)) !important;
+}
+
+/* Simplified shadows */
+.shadow-sm {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.hover\:shadow-md:hover {
+    box-shadow: 0 4px 12px rgba(62, 7, 3, 0.05), 0 2px 4px rgba(62, 7, 3, 0.03);
+}
+
+/* Rounded Utilities */
+.rounded-xl {
+    border-radius: 0.75rem;
+}
+
+.rounded-2xl {
+    border-radius: 1rem;
+}

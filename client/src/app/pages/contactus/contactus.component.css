@@ -1,0 +1,48 @@
+:host {
+    /* Utilizing main theme colors */
+    --deep: #3E0703;
+    --royal: #6F3E2E;
+    --gold: #C7A252;
+    --beige: #F5E9D8;
+    --ivory: #FFF8E7;
+
+    display: block;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    background: rgb(var(--pal-beige));
+}
+
+/* --- REFINED ENTRY ANIMATIONS --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Form Styles Override */
+.minimal-input:-webkit-autofill,
+.minimal-input:-webkit-autofill:hover,
+.minimal-input:-webkit-autofill:focus,
+.minimal-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    /* Ensure text color matches the minimal aesthetic */
+    -webkit-text-fill-color: rgb(var(--pal-deep)) !important;
+}
+
+/* Peer validation hack for angular forms natively lacking placeholder-shown support sometimes */
+.minimal-input:not(:placeholder-shown)+label {
+    top: -1rem;
+    font-size: 0.75rem;
+    color: rgb(var(--pal-gold));
+    font-weight: 700;
+}

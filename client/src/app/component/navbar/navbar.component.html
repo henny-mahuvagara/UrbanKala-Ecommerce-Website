@@ -1,0 +1,133 @@
+<!-- Navbar -->
+<!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-dark/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
+        <!-- Brand -->
+        <a routerLink="" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
+
+            <!-- Logo Image -->
+            <img src="images/logo.png" alt="Urbankala Logo" class="h-[80px] w-auto object-contain -my-1">
+
+            <!-- Optional text (remove if you want only logo) -->
+            <!--
+    <span class="text-xl font-bold bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
+        Tulsi Trails
+    </span>
+    -->
+
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1 text-3xl mb-2 text-[rgb(var(--color-header-text))]">
+            <a routerLink="" routerLinkActive="text-danger-900" [routerLinkActiveOptions]="{exact: true}"
+                class="px-4 py-2 rounded-lg text-sm font-medium hover:text-white hover:bg-white/5 transition-all duration-200">
+                Home
+            </a>
+            <a routerLink="products" routerLinkActive="text-primary-400"
+                class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200">
+                Products
+            </a>
+            <a routerLink="contactus" routerLinkActive="text-primary-400"
+                class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200">
+                Contact Us
+            </a>
+
+
+            <a routerLink="about" routerLinkActive="text-primary-400"
+                class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200">
+                About Us
+            </a>
+            <!-- Show when NOT logged in -->
+            <ng-container *ngIf="!(authService.currentUser$ | async)">
+                <a routerLink="login" routerLinkActive="text-primary-400"
+                    class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200">
+                    Login
+                </a>
+                <a routerLink="register"
+                    class=" px-5 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200">
+                    Sign Up
+                </a>
+            </ng-container>
+
+            <!-- Show when logged in -->
+            <ng-container *ngIf="authService.currentUser$ | async as user">
+                <a routerLink="cart" routerLinkActive="text-primary-400"
+                    class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200">
+                    Cart
+                </a>
+
+                <!-- Email Dropdown -->
+                <div class="nav-dropdown-wrapper">
+                    <button (click)="toggleDropdown()" class="nav-dropdown-trigger" [class.open]="dropdownOpen">
+                        <span>{{ user.email }}</span>
+                        <span class="chevron">▼</span>
+                    </button>
+
+                    <div *ngIf="dropdownOpen" class="nav-dropdown-menu">
+                        <div class="dropdown-email">{{ user.email }}</div>
+                        <a routerLink="/profile" (click)="dropdownOpen = false">
+                            <span class="dropdown-icon">👤</span>
+                            Profile
+                        </a>
+                        <a routerLink="/orders" (click)="dropdownOpen = false">
+                            <span class="dropdown-icon">📦</span>
+                            My Orders
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item logout-btn" (click)="logout()">
+                            <span class="dropdown-icon">🚪</span>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button (click)="mobileMenuOpen = !mobileMenuOpen"
+            class="md:hidden text-2xl text-slate-300 hover:text-white transition-colors">
+            <span *ngIf="!mobileMenuOpen">☰</span>
+            <span *ngIf="mobileMenuOpen">✕</span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div *ngIf="mobileMenuOpen" class="md:hidden border-t border-white/10 bg-dark/95 backdrop-blur-xl">
+        <div class="px-6 py-4 flex flex-col gap-2">
+            <a routerLink="" (click)="mobileMenuOpen = false"
+                class="py-2.5 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Home</a>
+            <a routerLink="products" (click)="mobileMenuOpen = false"
+                class="py-2.5 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Products</a>
+
+            <!-- Mobile: NOT logged in -->
+            <ng-container *ngIf="!(authService.currentUser$ | async)">
+                <a routerLink="login" (click)="mobileMenuOpen = false"
+                    class="py-2.5 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Login</a>
+                <a routerLink="register" (click)="mobileMenuOpen = false"
+                    class="mt-2 py-2.5 text-center bg-gradient-to-r from-primary-500 to-secondary-600 text-white font-semibold rounded-full">Sign
+                    Up</a>
+            </ng-container>
+
+            <!-- Mobile: Logged in -->
+            <ng-container *ngIf="authService.currentUser$ | async as user">
+                <a routerLink="cart" (click)="mobileMenuOpen = false"
+                    class="py-2.5 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">🛒
+                    Cart</a>
+                <a routerLink="/profile" (click)="mobileMenuOpen = false"
+                    class="py-2.5 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">👤
+                    Profile</a>
+                <a routerLink="/orders" (click)="mobileMenuOpen = false"
+                    class="py-2.5 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">📦
+                    My Orders</a>
+                <span class="py-2.5 px-4 text-sm text-slate-400">{{ user.email }}</span>
+                <button (click)="logout(); mobileMenuOpen = false"
+                    class="mt-2 py-2.5 text-center border border-red-500/50 text-red-400 font-medium rounded-full hover:bg-red-500 hover:text-white transition-all">
+                    Logout
+                </button>
+            </ng-container>
+        </div>
+    </div>
+</nav>
+
+<!-- Spacer for fixed nav -->
+<div class="h-[72px]"></div>

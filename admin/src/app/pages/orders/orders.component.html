@@ -1,0 +1,113 @@
+<div class="orders-container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="page-title">Order Management</h1>
+        <!-- <div class="actions">
+            <button class="btn btn-outline-secondary btn-sm me-2">Export Data</button>
+            <button class="btn-maroon btn-sm">Refresh List</button>
+        </div> -->
+    </div>
+
+    <!-- Clean Orders Table -->
+    <div class="admin-card">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Product Details</th>
+                    <th>User ID</th>
+                    <th>Order Status</th>
+                    <th>Shipping Address</th>
+                    <th>Price</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders">
+                    <td>
+                        <div class="product-info">
+                            <span class="product-name">{{ order.pname }}</span>
+                            <span class="order-id">#{{ order.id.slice(-6).toUpperCase() }}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="user-id">{{ order.uid.slice(0, 12) }}...</span>
+                    </td>
+                    <td>
+                        <span [ngClass]="{
+                            'bg-warning text-warning-emphasis': order.status === 'Processing' || order.status === 'Accepted',
+                            'bg-info text-info-emphasis': order.status === 'Shipped',
+                            'bg-success text-success-emphasis': order.status === 'Delivered',
+                            'bg-danger text-danger-emphasis': order.status === 'Cancelled'
+                        }" class="badge-pill border">
+                            {{ order.status }}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="shipping-info">
+                            <span class="address">{{ order.address }}</span>
+                            <span class="city-zip text-muted small">{{ order.city }}, {{ order.zipCode }}</span>
+                            <span class="phone text-muted small">📞 {{ order.phone }}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="order-price">₹{{ order.total | number }}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group d-flex justify-content-end gap-2">
+                            <!-- Accept -->
+                            <button *ngIf="order.status === 'Processing'"
+                                    (click)="acceptOrder(order.id)"
+                                    class="btn-maroon btn-sm py-1 px-3"
+                                    title="Accept">
+                                Accept
+                            </button>
+
+                            <!-- Ship -->
+                            <button *ngIf="order.status === 'Accepted'"
+                                    (click)="shipOrder(order.id)"
+                                    class="btn btn-warning btn-sm py-1 px-3 text-white"
+                                    title="Ship">
+                                Ship
+                            </button>
+
+                            <!-- Deliver -->
+                            <button *ngIf="order.status === 'Shipped'"
+                                    (click)="deliverOrder(order.id)"
+                                    class="btn btn-success btn-sm py-1 px-3"
+                                    title="Deliver">
+                                Deliver
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .product-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .product-name {
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+    .order-id {
+        font-size: 0.75rem;
+        color: #64748B;
+    }
+    .user-id {
+        font-size: 0.8125rem;
+        color: #475569;
+        font-family: monospace;
+    }
+    .order-price {
+        font-weight: 700;
+        font-size: 0.875rem;
+    }
+    .bg-warning { background-color: #FEF3C7 !important; color: #92400E !important; border-color: #FDE68A !important; }
+    .bg-info { background-color: #E0F2FE !important; color: #075985 !important; border-color: #BAE6FD !important; }
+    .bg-success { background-color: #DCFCE7 !important; color: #166534 !important; border-color: #BBF7D0 !important; }
+    .bg-danger { background-color: #FEE2E2 !important; color: #991B1B !important; border-color: #FECACA !important; }
+</style>

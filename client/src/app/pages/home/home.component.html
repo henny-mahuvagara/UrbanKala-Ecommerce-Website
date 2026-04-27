@@ -1,0 +1,196 @@
+﻿<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden">
+    <!-- Background blobs -->
+    <div
+        class="absolute w-[500px] h-[500px] bg-primary-500 rounded-full -top-48 -right-24 opacity-15 blur-[120px] animate-float">
+    </div>
+    <div
+        class="absolute w-[400px] h-[400px] bg-secondary-500 rounded-full -bottom-36 -left-24 opacity-15 blur-[120px] animate-float-delayed">
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center overflow-hidden bg-cover bg-center"
+        style="background-image: url('images/mainposter.jpg'); width: 100%; height: 100%;">
+
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- Background blobs -->
+        <div
+            class="absolute w-[500px] h-[500px] bg-primary-500 rounded-full -top-48 -right-24 opacity-15 blur-[120px] animate-float">
+        </div>
+        <div
+            class="absolute w-[400px] h-[400px] bg-secondary-500 rounded-full -bottom-36 -left-24 opacity-15 blur-[120px] animate-float-delayed">
+        </div>
+
+        <!-- <div class="relative z-10 max-w-7xl mx-auto px-6 w-full py-16 flex justify-content-end pr-6"> -->
+        <div class="relative z-10 w-full py-16 flex justify-end pr-6">
+            <div class="max-w-2xl text-end">
+                <!-- <span
+                    class="inline-block px-4 py-1.5 text-sm font-medium text-primary-300 bg-primary-500/15 border border-primary-500/25 rounded-full mb-6">
+                    🎉 New Collection Available
+                </span> -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-[rgb(var(--pal-deep))]">
+                    Discover <span class="bg-clip-text text-[rgb(var(--pal-ivory))]">Premium</span>
+                    Products
+                </h1>
+                <p class="text-[rgb(var(--pal-ivory))]  mb-8 leading-relaxed position-relative end-0"
+                    style="position:relative; right:0;">
+                    Explore our curated collection of high-quality products, find
+                    everything
+                    you need in one place.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-end">
+                    <a routerLink="products"
+                        class="px-7 py-3.5 bg-[rgb(var(--pal-deep))] text-white font-semibold rounded-full shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40  hover:bg-[rgb(var(--pal-beige))] hover:text-[rgb(var(--pal-deep))] hover:-translate-y-0.5 transition-all duration-300">
+                        Shop Now
+                    </a>
+                    <a *ngIf="!isUserLoggedIn" routerLink="register"
+                        class="px-7 py-3.5  border border-[rgb(var(--pal-deep))] text-white font-semibold rounded-full shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40  hover:bg-[rgb(var(--pal-beige))] hover:text-[rgb(var(--pal-deep))] hover:-translate-y-0.5 transition-all duration-300">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="flex gap-10 flex-wrap mt-14 justify-end">
+                    <div>
+                        <h3 class="text-3xl font-bold bg-clip-text text-[rgb(var(--pal-ivory))]">
+                            10K+</h3>
+                        <p class="text-sm mt-1 text-[rgb(var(--pal-deep))]">Products</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold bg-clip-text text-[rgb(var(--pal-ivory))]">
+                            50K+</h3>
+                        <p class="text-sm mt-1 text-[rgb(var(--pal-deep))]">Customers</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold bg-clip-text text-[rgb(var(--pal-ivory))]">
+                            4.9</h3>
+                        <p class="text-sm mt-1 text-[rgb(var(--pal-deep))]">Rating</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-20 bg-[rgb(var(--pal-beige))]">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-3  text-[rgb(var(--pal-deep))]">Why Choose <span
+                    class=" bg-clip-text ">UrbanKala
+                </span></h2>
+            <p class=" text-[rgb(var(--pal-deep))]/80 text-lg">Experience shopping like never before</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div
+                class="bg-[rgb(var(--pal-deep))] border border-white/[0.07] rounded-2xl p-7 text-center hover:border-primary-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(245,158,11,0.12)] transition-all duration-300">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white text-2xl group-hover:scale-110 transition-transform duration-300">
+                    <img src="/images/fastD.png" alt="Fast Delivery" class="w-8 h-8 inline">
+                    </div>
+                <h5 class="font-semibold mb-2 text-lg">Fast Delivery</h5>
+                <p class="text-sm leading-relaxed">Get your orders delivered within 24-48 hours</p>
+            </div>
+            <div
+                class="group bg-[rgb(var(--pal-deep))] border border-white/[0.07] rounded-2xl p-7 text-center hover:border-primary-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(245,158,11,0.12)] transition-all duration-300">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white text-2xl group-hover:scale-110 transition-transform duration-300">
+                    <img src="/images/secureChekout.png" alt="Secure Checkout" class="w-8 h-8 inline"></div>
+                <h5 class="font-semibold mb-2 text-lg">Secure Checkout</h5>
+                <p class="text-sm leading-relaxed">100% secure payment processing</p>
+            </div>
+            <div
+                class="group bg-[rgb(var(--pal-deep))] border border-white/[0.07] rounded-2xl p-7 text-center hover:border-primary-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(245,158,11,0.12)] transition-all duration-300">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white text-2xl group-hover:scale-110 transition-transform duration-300">
+                    <img src="/images/support.png" alt="24/7 Support" class="w-12 h-12 inline"></div>
+                <h5 class="font-semibold mb-2 text-lg">24/7 Support</h5>
+                <p class="text-sm leading-relaxed">Round the clock customer assistance</p>
+            </div>
+            <div
+                class="group bg-[rgb(var(--pal-deep))] border border-white/[0.07] rounded-2xl p-7 text-center hover:border-primary-500/50 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(245,158,11,0.12)] transition-all duration-300">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white text-2xl group-hover:scale-110 transition-transform duration-300">
+                    <img src="/images/discount.png" alt="Special Offers" class="w-12 h-12 inline"></div>
+                <h5 class="font-semibold mb-2 text-lg">Special Offers</h5>
+                <p class=" text-sm leading-relaxed">Exclusive deals and discounts</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Products -->
+<section class="py-20  bg-[rgb(var(--pal-beige))] text-[rgb(var(--pal-deep))]">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between mb-10">
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-2">Our Popular <span class="bg-clip-text">Products</span>
+                </h2>
+                <p class=" text-[rgb(var(--pal-deep))]/80">Handpicked just for you</p>
+            </div>
+            <a routerLink="products"
+                class="hidden bg-[rgb(var(--pal-deep))] text-[rgb(var(--pal-ivory))] sm:inline-flex px-5 py-2.5 border text-sm font-medium rounded-full hover:border-[rgb(var(--pal-deep))]  hover:bg-[rgb(var(--pal-ivory))]  hover:text-[rgb(var(--pal-deep))] hover:border-slate-600 transition-all">
+                View All
+            </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
+            <div *ngFor="let i of products" [routerLink]="['/products', i.id]"
+                class="group bg-[rgb(var(--pal-deep))] text-[rgb(var(--pal-ivory))] border border-white/[0.07] rounded-2xl overflow-hidden hover:border-primary-500/40 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(245,158,11,0.12)] transition-all duration-300">
+                <div class="h-56 overflow-hidden bg-slate-800/50 flex items-center justify-center">
+                    <img [src]="i.image" [alt]="i.pname"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+                    <h5 class="font-semibold text-lg mb-2">
+                        <a [routerLink]="['/products', i.id]"
+                            class="text-slate-100 hover:text-primary-400 transition-colors capitalize">
+                            {{i.pname}}
+                        </a>
+                    </h5>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xl font-bold text-primary-300">&#8377;{{i.price}}</span>
+
+                        <!-- <button class="px-4 py-2 m-3 text-sm font-medium border border-primary-600 text-primary-700 rounded-lg hover:bg-primary-700 hover:text-white transition-all duration-300">
+                            Add to Cart
+                            <a [routerLink]="['/cart']"></a>
+                        </button>    -->
+                        <a [routerLink]="['/products', i.id]"
+                            class="px-4 py-2 text-sm font-medium border border-primary-600 text-primary-700 rounded-lg hover:bg-primary-700 hover:text-white transition-all duration-300">
+                            View &rightarrow;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8 sm:hidden">
+            <a routerLink="products"
+                class="px-6 py-3 border border-slate-700 text-slate-300 text-sm font-medium rounded-full hover:bg-white/5 transition-all">
+                View All Products
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section *ngIf="!isUserLoggedIn" class="py-16 bg-[rgb(var(--pal-beige))]">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="relative text-[rgb(var(--pal-deep))] rounded-3xl p-10 sm:p-14 overflow-hidden">
+            <div class="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full"></div>
+            <div class="absolute -bottom-1/3 -left-1/4 w-72 h-72 bg-white/5 rounded-full"></div>
+            <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold  text-[rgb(var(--pal-deep))] mb-2">Ready to Start
+                        Shopping?</h2>
+                    <p class=" text-[rgb(var(--pal-deep))]/80">Join thousands of happy customers and get exclusive
+                        deals!</p>
+                </div>
+                <a routerLink="register"
+                    class="shrink-0  border bg-[rgb(var(--pal-deep))] text-[rgb(var(--pal-ivory))] px-8 py-3.5 font-semibold rounded-full hover:border-[rgb(var(--pal-deep))]  hover:bg-[rgb(var(--pal-ivory))]  hover:text-[rgb(var(--pal-deep))] hover:-translate-y-0.5 transition-all duration-300 shadow-lg">
+                    Create Account
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

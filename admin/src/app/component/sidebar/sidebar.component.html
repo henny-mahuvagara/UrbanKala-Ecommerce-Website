@@ -1,0 +1,169 @@
+<div class="admin-wrapper d-flex">
+    <!-- Simple & Clean Sidebar -->
+    <aside class="admin-sidebar shadow-sm">
+        <div class="sidebar-header">
+            <h1 class="brand-name">UrbanKala</h1>
+            <p class="brand-sub">Management Portal</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a class="nav-item" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+            <a class="nav-item" routerLink="/users" routerLinkActive="active">
+                <i class="bi bi-people"></i>
+                <span>Users</span>
+            </a>
+            <a class="nav-item" routerLink="/orders" routerLinkActive="active">
+                <i class="bi bi-cart"></i>
+                <span>Orders</span>
+            </a>
+            <a class="nav-item" routerLink="/inquiries" routerLinkActive="active">
+                <i class="bi bi-chat-dots"></i>
+                <span>Inquiries</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button (click)="logout()" class="btn-logout">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+        <!-- Dashboard Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <h2 class="page-title">Admin Dashboard</h2>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span class="user-role">Administrator</span>
+                    <span class="user-name">Urban Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="admin-content p-4">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>
+
+<style>
+    .admin-wrapper {
+        min-height: 100vh;
+    }
+    .admin-sidebar {
+        width: 260px;
+        background: white;
+        border-right: 1px solid #E2E8F0;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+    .sidebar-header {
+        padding: 2rem 1.5rem;
+        border-bottom: 1px solid #F1F5F9;
+    }
+    .brand-name {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #3E0703;
+        margin: 0;
+    }
+    .brand-sub {
+        font-size: 0.75rem;
+        color: #64748B;
+        margin: 0;
+        font-weight: 500;
+    }
+    .sidebar-nav {
+        padding: 1rem;
+        flex-grow: 1;
+    }
+    .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        color: #475569;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.875rem;
+        border-radius: 0.5rem;
+        margin-bottom: 0.25rem;
+        transition: all 0.2s;
+    }
+    .nav-item i {
+        font-size: 1.1rem;
+    }
+    .nav-item:hover {
+        background: #F8FAFC;
+        color: #3E0703;
+    }
+    .nav-item.active {
+        background: #3E0703;
+        color: white;
+    }
+    .sidebar-footer {
+        padding: 1rem;
+        border-top: 1px solid #F1F5F9;
+    }
+    .btn-logout {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        background: transparent;
+        border: none;
+        color: #EF4444;
+        font-weight: 600;
+        font-size: 0.875rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+    }
+    .btn-logout:hover {
+        background: #FEF2F2;
+    }
+    .admin-main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .admin-header {
+        height: 64px;
+        background: white;
+        border-bottom: 1px solid #E2E8F0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+    .page-title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    .user-info {
+        text-align: right;
+    }
+    .user-role {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: #64748B;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .user-name {
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+</style>

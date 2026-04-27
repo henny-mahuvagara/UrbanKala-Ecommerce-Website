@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.angular/
+.cache/
+
+.env
+environment.ts
+environment.prod.ts
+
+firebase-debug.log
+.firebaserc
+
+.DS_Store
+Thumbs.db

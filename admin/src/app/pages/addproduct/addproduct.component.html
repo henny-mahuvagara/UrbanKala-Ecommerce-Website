@@ -1,0 +1,180 @@
+<div class="product-mgmt-container p-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="page-title">{{ editId ? 'Update Product' : 'Add New Product' }}</h1>
+            <p class="text-muted small">Manage your artisan collection and inventory</p>
+        </div>
+    </div>
+
+    <!-- Add/Update Form Card -->
+    <div class="admin-card p-4 mb-5">
+        <form [formGroup]="product" (ngSubmit)="saveProduct()">
+            <div class="row g-4">
+                <!-- Product Name & Category -->
+                <div class="col-md-8">
+                    <div class="mb-3">
+                        <label class="form-label font-bold text-xs uppercase tracking-wider text-muted">Product Name</label>
+                        <input type="text" formControlName="pname" class="form-control" placeholder="e.g. Handcrafted Wooden Lamp"
+                            [class.is-invalid]="product.get('pname')?.invalid && product.get('pname')?.touched">
+                        <div *ngIf="product.get('pname')?.invalid && product.get('pname')?.touched" class="text-danger small mt-1">
+                            Product name is required.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label font-bold text-xs uppercase tracking-wider text-muted">Description</label>
+                        <textarea class="form-control" formControlName="pdesc" rows="3" placeholder="Tell the story of this piece..."
+                            [class.is-invalid]="product.get('pdesc')?.invalid && product.get('pdesc')?.touched"></textarea>
+                        <div *ngIf="product.get('pdesc')?.invalid && product.get('pdesc')?.touched" class="text-danger small mt-1">
+                            Description is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label font-bold text-xs uppercase tracking-wider text-muted">Category</label>
+                        <select class="form-select" formControlName="category"
+                            [class.is-invalid]="product.get('category')?.invalid && product.get('category')?.touched">
+                            <option value="wooden">Wooden</option>
+                            <option value="saree">Saree</option>
+                            <option value="footwear">Footwear</option>
+                            <option value="lamp">Lamp</option>
+                            <option value="homedecore">Home Decor</option>
+                            <option value="kitchen appliances">Kitchen Appliances</option>
+                            <option value="idols">Idols</option>
+                        </select>
+                        <div *ngIf="product.get('category')?.invalid && product.get('category')?.touched" class="text-danger small mt-1">
+                            Category is required.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label font-bold text-xs uppercase tracking-wider text-muted">Price (₹)</label>
+                        <input type="number" formControlName="price" class="form-control" placeholder="0.00" min="0"
+                            [class.is-invalid]="product.get('price')?.invalid && product.get('price')?.touched">
+                        <div *ngIf="product.get('price')?.invalid && product.get('price')?.touched" class="text-danger small mt-1">
+                            <span *ngIf="product.get('price')?.errors?.['required']">Price is required.</span>
+                            <span *ngIf="product.get('price')?.errors?.['min']">Price cannot be negative.</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label font-bold text-xs uppercase tracking-wider text-muted">Stock Quantity</label>
+                        <input type="number" formControlName="stock" class="form-control" placeholder="0" min="0"
+                            [class.is-invalid]="product.get('stock')?.invalid && product.get('stock')?.touched">
+                        <div *ngIf="product.get('stock')?.invalid && product.get('stock')?.touched" class="text-danger small mt-1">
+                            <span *ngIf="product.get('stock')?.errors?.['required']">Stock is required.</span>
+                            <span *ngIf="product.get('stock')?.errors?.['min']">Stock cannot be negative.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Care Instructions & Image -->
+                <div class="col-md-8">
+                    <div class="mb-0">
+                        <label class="form-label font-bold text-xs uppercase tracking-wider text-muted">Care Instructions</label>
+                        <textarea class="form-control" formControlName="care" rows="2" placeholder="How to preserve this craft..."
+                            [class.is-invalid]="product.get('care')?.invalid && product.get('care')?.touched"></textarea>
+                        <div *ngIf="product.get('care')?.invalid && product.get('care')?.touched" class="text-danger small mt-1">
+                            Care instructions are required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="mb-0">
+                        <label class="form-label font-bold text-xs uppercase tracking-wider text-muted">Product Image</label>
+                        <input type="file" (change)="onFileSelected($event)" class="form-control" accept="image/*">
+                        <p class="small text-muted mt-1" *ngIf="editId">Leave empty to keep current image</p>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="col-12 text-end border-top pt-4">
+                    <button type="button" class="btn btn-link text-muted me-3" (click)="product.reset(); editId = ''" *ngIf="editId">Cancel Edit</button>
+                    <button type="submit" class="btn-maroon px-5">
+                        <i class="bi" [ngClass]="editId ? 'bi-check2-circle' : 'bi-plus-lg'"></i>
+                        <span class="ms-2">{{ editId ? 'Update Collection' : 'Add to Collection' }}</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Product Archive Title -->
+    <div class="mb-3">
+        <h3 class="page-title fs-5">Active Inventory</h3>
+        <p class="text-muted small">Overview of items currently in your digital gallery</p>
+    </div>
+
+    <!-- Inventory Table Card -->
+    <div class="admin-card overflow-hidden">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Product Information</th>
+                    <th style="width: 10%;">Price</th>
+                    <th style="width: 10%;">Stock</th>
+                    <th style="width: 15%;">Category</th>
+                    <th style="width: 25%;">Care Details</th>
+                    <th class="text-end" style="width: 15%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of products">
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="img-preview-sm">
+                                <img [src]="p.image" alt="Product">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <span class="fw-bold fs-7">{{p.pname}}</span>
+                                <span class="text-muted text-xs">#{{p.id.slice(-6).toUpperCase()}}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="fw-bold">₹{{p.price | number}}</span>
+                    </td>
+                    <td>
+                        <span class="badge" [ngClass]="(p.stock || 0) > 0 ? 'bg-success-subtle text-success border' : 'bg-danger-subtle text-danger border'">{{p.stock || 0}}</span>
+                    </td>
+                    <td>
+                        <span class="badge bg-light text-dark border font-medium px-2 py-1 text-xs">{{p.category | uppercase}}</span>
+                    </td>
+                    <td>
+                        <p class="text-muted small mb-0 text-truncate" style="max-width: 200px;" [title]="p.care">{{p.care}}</p>
+                    </td>
+                    <td class="text-end">
+                        <div class="d-flex justify-content-end gap-2">
+                            <button (click)="editProduct(p)" class="btn btn-sm btn-outline-secondary" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button (click)="deleteProduct(p.id)" class="btn btn-sm btn-outline-danger" title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .img-preview-sm {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #F1F5F9;
+        border: 1px solid #E2E8F0;
+    }
+    .img-preview-sm img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .fs-7 { font-size: 0.875rem; }
+    .text-xs { font-size: 0.75rem; }
+    .font-bold { font-weight: 700; }
+</style>

@@ -1,0 +1,66 @@
+<div class="admin-card overflow-hidden">
+  <!-- Header Section -->
+  <div class="p-4 border-bottom d-flex justify-content-between align-items-center bg-white">
+    <div>
+      <h5 class="mb-1 fw-bold text-dark">Contact Inquiries</h5>
+      <p class="text-muted small mb-0 font-medium tracking-tight">Manage user messages and feedback</p>
+    </div>
+    <div class="text-end">
+      <span class="badge-pill bg-maroon text-white border-0">{{ inquiries.length }} Total</span>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="p-5 text-center">
+    <div class="spinner-border spinner-border-sm text-muted opacity-50 mb-3" role="status"></div>
+    <p class="text-muted small mb-0 uppercase tracking-widest fw-semibold">Syncing Data...</p>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!isLoading && inquiries.length === 0" class="p-5 text-center bg-light">
+    <div class="mb-3 opacity-20">
+      <i class="bi bi-envelope-x fs-1"></i>
+    </div>
+    <h6 class="fw-bold text-dark">Inbox is empty</h6>
+    <p class="text-muted small mb-0">No contact inquiries found at the moment.</p>
+  </div>
+
+  <!-- Inquiries Table -->
+  <div *ngIf="!isLoading && inquiries.length > 0" class="table-responsive">
+    <table class="table admin-table mb-0">
+      <thead>
+        <tr>
+          <th class="ps-4">Sender</th>
+          <th>Subject</th>
+          <th>Message</th>
+          <th>Date</th>
+          <th class="text-end pe-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inquiry of inquiries" class="inquiry-row">
+          <td class="ps-4">
+            <div class="d-flex flex-column">
+              <span class="fw-bold text-dark">{{ inquiry.name }}</span>
+              <a href="mailto:{{inquiry.email}}" class="text-muted small text-decoration-none hover-maroon transition-all">{{ inquiry.email }}</a>
+            </div>
+          </td>
+          <td>
+            <span class="text-dark fw-medium small bg-light px-2 py-1 rounded border">{{ inquiry.subject }}</span>
+          </td>
+          <td class="text-muted small" style="max-width: 300px;">
+            <p class="mb-0 text-truncate" [title]="inquiry.message">{{ inquiry.message }}</p>
+          </td>
+          <td class="text-muted small whitespace-nowrap">
+            {{ inquiry.createdAt | date:'MMM d, y, h:mm a' }}
+          </td>
+          <td class="text-end pe-4">
+            <button class="btn-delete-minimal" (click)="deleteInquiry(inquiry.id)" title="Remove">
+              <i class="bi bi-trash3"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
